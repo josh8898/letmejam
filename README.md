@@ -1,4 +1,5 @@
-#letmejam
+# letmejam
+
 Website built with Python(Flask) and React JS, that allows guitar players to search and upload backing tracks to jam over. Will include details about the track's key, and scales/modes recommended for grooving over it. Details about each track are stored in a PostgreSQL database. Website will be hosted using AWS when it goes live.
 
 Current Features:
