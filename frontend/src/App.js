@@ -45,7 +45,11 @@ async function getMP3(id) {
   
   try {
     const {data:response} = await axios.get(`http://localhost:5000/files/t${id}.mp3`, {responseType: 'blob'}) //use data destructuring to get data from the promise object
-    return response
+    
+    const mp3 = new Blob([response.data], { type: 'audio/mp3' })
+    const trackURL = window.URL.createObjectURL(mp3)
+    console.log(trackURL)
+    return trackURL
   }
 
   catch (error) {
@@ -110,12 +114,51 @@ function Home() {
                     const trackFilename = track[5];
                     const trackKey = track[6];
                     const trackRating = track[7];
+                    /*
+                    const playAudio = async (id) => {
+                      try {
+                        console.log(id)
+                        const response = await axios.get(`http://localhost:5000/files/t${id}.mp3`, {responseType:'blob'});
+                        const mp3 = new Blob([response.data], { type: 'audio/mp3' });
+                        const url = (window.URL.createObjectURL(mp3));
+                        console.log(url)
+                        //setData(url);
+                        //return (Data);
+                        //const audio = new Audio(url)
+                        //return url
+                        //audio.load()
+                        //await audio.play()
+                        return url
+                      } catch (e) {
+                        console.log('play audio error: ', e)
+                      }
+                    };
+                    */
+                    //axios.get(`http://localhost:5000/files/t${trackId}.mp3`, {responseType:'blob'}
+                    //).then((response) => {
+                    //  const mp3 = new Blob([response.data], { type: 'audio/mp3' });
+                    //  const url = (window.URL.createObjectURL(mp3));
+                    //});
 
-                    const response = getMP3(String(trackId))
-                    const mp3 = new Blob([response.data], { type: 'audio/mp3' })
-                    const trackURL = window.URL.createObjectURL(mp3)
-                    //setData(trackURL)
+                    const trackURL = `http://localhost:5000/files/t${trackId}.mp3`
+                    //console.log("here")
                     //console.log(trackURL)
+                    //const mp3 = new Blob([response.data], { type: 'audio/mp3' })
+                    //const trackURL = window.URL.createObjectURL(mp3)
+                    /*
+                                                <ul>
+                              <button onClick={() => playAudio(trackId)}>Play Track!</button>
+                            </ul
+                            <ReactAudioPlayer
+                              src={playAudio(trackId)}
+                              controls
+                            />
+                    */
+                    //setData(trackURL)
+                    //<ReactAudioPlayer
+                    //src={trackURL}
+                    //controls
+                  ///>
                     let metaColor = 'low';
 
                     return (
@@ -137,6 +180,8 @@ function Home() {
                               src={trackURL}
                               controls
                             />
+                            
+                            
                         </div>
                     );
                 })}
