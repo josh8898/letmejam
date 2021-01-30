@@ -3,6 +3,7 @@ from flask_cors import CORS
 from dotenv import load_dotenv
 import psycopg2
 import os
+from werkzeug.utils import secure_filename
 
 load_dotenv()
 
@@ -50,13 +51,21 @@ try:
     @app.route('/add-track', methods=['GET', 'POST'])
     def add_movie():
         if request.method == 'POST':
+            print("hi")
             data = request.form.to_dict()
+            f = request.files['file']
+            print(f.filename)
+            filename = secure_filename(f.filename)
+            if filename != '':
+                f.save(os.path.join('files', filename))
+            else:
+                print("did not save :(")
             print(data)
             cur.execute("INSERT INTO tracks (track_name, track_artist, img_filename, track_genre, track_filename, track_key, track_rating) VALUES (%s, %s, %s, %s, %s, %s, %s)",
                         (f"{data['trackName']}", f"{data['trackArtist']}", data['imgFilename'], f"{data['trackGenre']}",
                          f"{data['trackFilename']}", f"{data['trackKey']}", 0))
             con.commit()
-            return redirect('http://localhost:3000', code="200")
+            return redirect('http://localhost:3000/', code="200")
         else:
             return 'Form submission failed'
 

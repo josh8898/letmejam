@@ -9,6 +9,7 @@ import ReactAudioPlayer from 'react-audio-player';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import './App.css';
+import SimpleReactFileUpload from './react-file-upload';
 
 
 const App = () => {
@@ -192,6 +193,7 @@ function Home() {
 }
 
 function AddTrack() {
+  /*
   return (
     <div className="form-container">
     <h2>Add Track</h2>
@@ -221,10 +223,17 @@ function AddTrack() {
             <input type="text" name="trackKey" required />
         </div>
         <div>
+            <SimpleReactFileUpload/>
+        </div>
+        <div>
             <button type="submit">Add Track</button>
         </div>
     </form>
 </div>
+  );
+  */
+  return (
+    <SimpleReactFileUpload/>
   );
 }
 
