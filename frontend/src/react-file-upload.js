@@ -59,22 +59,15 @@ class SimpleReactFileUpload extends React.Component {
             <input type="text" name="trackArtist" required />
         </div>
         <div>
-            <label>Image</label>
-            <input type="text" name="imgFilename" />
-        </div>
-        <div>
             <label>Track Genre</label>
             <input type="text" name="trackGenre" required />
-        </div>
-        <div>
-            <label>Filename</label>
-            <input type="text" name="trackFilename" required />
         </div>
         <div>
             <label>Track Key</label>
             <input type="text" name="trackKey" required />
         </div>
         <div>
+            <label>Track File Upload</label>
             <input type="file" name = "musicfile" onChange={this.onChange} />
         </div>
         <div>

@@ -62,8 +62,8 @@ try:
                 print("did not save :(")
             print(data)
             cur.execute("INSERT INTO tracks (track_name, track_artist, img_filename, track_genre, track_filename, track_key, track_rating) VALUES (%s, %s, %s, %s, %s, %s, %s)",
-                        (f"{data['trackName']}", f"{data['trackArtist']}", data['imgFilename'], f"{data['trackGenre']}",
-                         f"{data['trackFilename']}", f"{data['trackKey']}", 0))
+                        (f"{data['trackName']}", f"{data['trackArtist']}", "No IMG", f"{data['trackGenre']}",
+                         str(os.path.join('files', filename)), f"{data['trackKey']}", 0))
             con.commit()
             return redirect('http://localhost:3000/', code="200")
         else:

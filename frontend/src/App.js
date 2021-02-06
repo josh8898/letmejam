@@ -76,6 +76,7 @@ function Home() {
                 setApiData(data);
             });
     };
+
    // const getMP3 = (id) => {
    //   axios({
    //     url: `http://localhost:5000/files/t${id}.mp3`,
@@ -92,13 +93,25 @@ function Home() {
   }, []);
   const [apiData, setApiData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [Data, setData] = useState(null);
+  const [Data, setData] = useState("");
+  const handleSearch = (event) => {
+        setData(event.target.value);
+        console.log(Data);
+    }
 
   return (
   <Fragment>
     <header>
         <h1>Let Me Jam</h1>
     </header>
+    <div>
+      <input
+            type="text"
+            id="filter"
+            placeholder="Search for..."
+            onChange={handleSearch}
+      />
+    </div>
     <main>
         {loading === true ? (
             <div>
@@ -106,7 +119,7 @@ function Home() {
             </div>
         ) : (
             <section>
-                {apiData.map((track) => {
+                {apiData.filter((track) => track[1].includes(Data)).map((track) => {
                     const trackId = track[0];
                     const trackName = track[1];
                     const trackArtist = track[2];
