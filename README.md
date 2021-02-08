@@ -7,7 +7,6 @@ Current Features:
 * MP3s can be streamed by the user
 
 To Do:
-* Implement a search function
 * Implement more tables in the DB to store keywords relating to each track, as well as scales used to play over the backing track
 * Make it look prettier!
 * Push to public domain using AWS, look into delivering files to user via S3

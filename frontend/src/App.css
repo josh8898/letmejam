@@ -29,6 +29,27 @@ header h1 {
     color: #ffffff;
 }
 
+
+
+header button  {
+    background-color: red;
+    box-shadow: 0 5px 0 darkred;
+    color: white;
+    padding: 1em 1em;
+    display: inline;
+    position: relative;
+    text-decoration: none;
+  }
+  
+header button:hover {
+    background-color: #ce0606;
+  }
+  
+header button:active {
+    box-shadow: none;
+    top: 5px;
+  }
+
 section {
     display: flex;
     flex-flow: row wrap;
@@ -51,6 +72,19 @@ form {
 form input {
     height: 3rem;
     padding: 1.5rem;
+}
+p {
+    text-align:center
+}
+p input {
+    padding-left: 65px;
+    color: #666666;
+    box-shadow: 2px 3px 28px 1px rgba(0,0,0,0.1);
+    border: 0px solid transparent;
+    border-radius: 5px;
+
+    height: 75px;
+    font-size: 25px;
 }
 
 form textarea {
@@ -77,25 +111,25 @@ form div {
     margin-bottom: 1.3rem;
 }
 
-.movie-container {
-    background: #fcee0b;
+.track-container {
+    background: rgb(177, 217, 235);
     padding: 4rem;
     margin-top: 2rem;
-    border-radius: 2rem 7rem;
+    border-radius: 2rem 2rem;
     width: 50rem;
     max-width: 100%;
 }
 
-.movie-container h1 {
+.track-container h1 {
     font-size: 3rem;
 }
 
-.movie-container p {
+.track-container p {
     margin: 1rem 0 1rem 0;
     font-size: 2rem;
 }
 
-.movie-container img {
+.track-container img {
     width: 10rem;
     height: 15rem;
 }

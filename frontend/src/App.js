@@ -15,15 +15,23 @@ import SimpleReactFileUpload from './react-file-upload';
 const App = () => {
     return (
       <Router>
+      <header>
+        <h1>Let Me Jam</h1>
+              <Link to="/" style={{ textDecoration: 'none' }}>
+                <button type="button">
+                  Home
+                </button>
+              </Link>
+              <Link to="/add-track" style={{ textDecoration: 'none' }}>
+                <button type="button">
+                  Add Track
+                </button>
+              </Link>
+      </header>
       <div>
         <nav>
           <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/add-track">Add Track</Link>
-            </li>
+            
           </ul>
         </nav>
 
@@ -101,17 +109,15 @@ function Home() {
 
   return (
   <Fragment>
-    <header>
-        <h1>Let Me Jam</h1>
-    </header>
-    <div>
+
+    <p>
       <input
             type="text"
             id="filter"
-            placeholder="Search for..."
+            placeholder="Search for a Track..."
             onChange={handleSearch}
       />
-    </div>
+    </p>
     <main>
         {loading === true ? (
             <div>
