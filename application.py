@@ -9,7 +9,7 @@ from werkzeug.utils import secure_filename
 #load_dotenv()
 
 # PostgreSQL Database credentials loaded from the .env file
-"""
+
 DATABASE = os.environ.get('DATABASE')
 DATABASE_USERNAME = os.environ.get('DATABASE_USERNAME')
 DATABASE_PASSWORD = os.environ.get('DATABASE_PASSWORD')
@@ -17,7 +17,7 @@ S3_KEY = os.environ.get("S3_KEY")
 S3_SECRET = os.environ.get("S3_SECRET_ACCESS_KEY")
 S3_LOCATION = os.environ.get("S3_LOCATION")
 S3_BUCKET = os.environ.get("S3_BUCKET")
-"""
+
 application = Flask(__name__)
 CORS(application)
 
