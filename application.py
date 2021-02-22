@@ -9,7 +9,7 @@ from werkzeug.utils import secure_filename
 #load_dotenv()
 
 # PostgreSQL Database credentials loaded from the .env file
-
+"""
 DATABASE = os.environ.get('DATABASE')
 DATABASE_USERNAME = os.environ.get('DATABASE_USERNAME')
 DATABASE_PASSWORD = os.environ.get('DATABASE_PASSWORD')
@@ -17,10 +17,10 @@ S3_KEY = os.environ.get("S3_KEY")
 S3_SECRET = os.environ.get("S3_SECRET_ACCESS_KEY")
 S3_LOCATION = os.environ.get("S3_LOCATION")
 S3_BUCKET = os.environ.get("S3_BUCKET")
-
+"""
 application = Flask(__name__)
 CORS(application)
-
+"""
 s3 = boto3.client(
     "s3",
     aws_access_key_id=S3_KEY,
@@ -42,7 +42,7 @@ con = psycopg2.connect(
 
 cur = con.cursor()
 
-
+"""
 
 # GET: Fetch all movies from the database
 @application.route('/')
@@ -54,6 +54,7 @@ def fetch_all_tracks():
     #return jsonify(rows)
     return("HI FUCKER")
     # GET: Fetch movie by movieId from the database
+"""
 @application.route('/<int:track_id>')
 def fetch_by_id(track_id=None):
     cur.execute(f'SELECT * FROM tracks WHERE track_id = {track_id}')
@@ -112,9 +113,7 @@ def update_by_id():
 
 def upload_file_to_s3(file, bucket_name, acl="public-read"):
 
-    """
-    Docs: http://boto3.readthedocs.io/en/latest/guide/s3.html
-    """
+    #Docs: http://boto3.readthedocs.io/en/latest/guide/s3.html
 
     try:
 
@@ -125,7 +124,7 @@ def upload_file_to_s3(file, bucket_name, acl="public-read"):
         return e
 
     return "{}{}".format(S3_LOCATION, file.filename)
-
+"""
 if __name__ == '__main__':
     app.run(debug=True)
 
