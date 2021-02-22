@@ -19,14 +19,13 @@ S3_BUCKET = os.environ.get("S3_BUCKET")
 
 app = Flask(__name__)
 CORS(app)
-"""
+
 s3 = boto3.client(
     "s3",
     aws_access_key_id=S3_KEY,
     aws_secret_access_key=S3_SECRET,
     region_name = "ap-southeast-2"
 )
-"""
 
 # CORS implemented so that we don't get errors when trying to access the server from a different server location
 
@@ -34,9 +33,9 @@ s3 = boto3.client(
 
 
 con = psycopg2.connect(
-    database="letmejam",
-    user="josh",
-    password="a8ujnbhy7",
+    database=DATABASE,
+    user=DATABASE_USERNAME,
+    password=DATABASE_PASSWORD,
     host="lmjdatabase.czjjfwklkjop.ap-southeast-2.rds.amazonaws.com",
     port='5432')
 
