@@ -13,25 +13,25 @@ from werkzeug.utils import secure_filename
 DATABASE = os.environ['DATABASE']
 DATABASE_USERNAME = os.environ['DATABASE_USERNAME']
 DATABASE_PASSWORD = os.environ['DATABASE_PASSWORD']
-S3_KEY = os.environ["S3_KEY"]
-S3_SECRET = os.environ["S3_SECRET_ACCESS_KEY"]
-S3_LOCATION = os.environ["S3_LOCATION"]
-S3_BUCKET = os.environ["S3_BUCKET"]
+S3_KEY = os.environ['S3_KEY']
+S3_SECRET = os.environ['S3_SECRET_ACCESS_KEY']
+S3_LOCATION = os.environ['S3_LOCATION']
+S3_BUCKET = os.environ['S3_BUCKET']
 
 application = Flask(__name__)
 CORS(application)
-"""
+
 s3 = boto3.client(
     "s3",
     aws_access_key_id=S3_KEY,
     aws_secret_access_key=S3_SECRET,
     region_name = "ap-southeast-2"
 )
-"""
+
 
 # CORS implemented so that we don't get errors when trying to access the server from a different server location
 
-
+"""
 
 con = psycopg2.connect(
     database=DATABASE,
@@ -41,7 +41,7 @@ con = psycopg2.connect(
     port='5432')
 
 cur = con.cursor()
-
+"""
 
 
 # GET: Fetch all movies from the database
