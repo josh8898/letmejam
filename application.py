@@ -9,6 +9,7 @@ from werkzeug.utils import secure_filename
 #load_dotenv()
 
 # PostgreSQL Database credentials loaded from the .env file
+"""
 DATABASE = os.environ.get('DATABASE')
 DATABASE_USERNAME = os.environ.get('DATABASE_USERNAME')
 DATABASE_PASSWORD = os.environ.get('DATABASE_PASSWORD')
@@ -16,10 +17,10 @@ S3_KEY = os.environ.get("S3_KEY")
 S3_SECRET = os.environ.get("S3_SECRET_ACCESS_KEY")
 S3_LOCATION = os.environ.get("S3_LOCATION")
 S3_BUCKET = os.environ.get("S3_BUCKET")
-
+"""
 app = Flask(__name__)
 CORS(app)
-
+"""
 s3 = boto3.client(
     "s3",
     aws_access_key_id=S3_KEY,
@@ -40,17 +41,18 @@ con = psycopg2.connect(
     port='5432')
 
 cur = con.cursor()
-
+"""
 
 
 # GET: Fetch all movies from the database
 @app.route('/')
 def fetch_all_tracks():
-    cur.execute('SELECT * FROM tracks')
-    rows = cur.fetchall()
-    print(rows)
+    #cur.execute('SELECT * FROM tracks')
+    #rows = cur.fetchall()
+    #print(rows)
 
-    return jsonify(rows)
+    #return jsonify(rows)
+    return("HI FUCKER")
     # GET: Fetch movie by movieId from the database
 @app.route('/<int:track_id>')
 def fetch_by_id(track_id=None):
