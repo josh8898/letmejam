@@ -128,12 +128,12 @@ function Home() {
                 {apiData.filter((track) => track[1].includes(Data)).map((track) => {
                     const trackId = track[0];
                     const trackName = track[1];
-                    const trackArtist = track[2];
-                    const imgFilename = track[3];
-                    const trackGenre = track[4];
-                    const trackFilename = track[5];
-                    const trackKey = track[6];
-                    const trackRating = track[7];
+                    const trackArtist = track[7];
+                    const imgFilename = track[2];
+                    const trackGenre = track[3];
+                    const trackFilename = track[4];
+                    const trackKey = track[5];
+                    const trackRating = track[6];
                     /*
                     const playAudio = async (id) => {
                       try {
@@ -160,7 +160,7 @@ function Home() {
                     //  const url = (window.URL.createObjectURL(mp3));
                     //});
 
-                    const trackURL = `http://localhost:5000/files/t${trackId}.mp3`
+                    //const trackURL = `http://localhost:5000/files/t${trackId}.mp3`
                     //console.log("here")
                     //console.log(trackURL)
                     //const mp3 = new Blob([response.data], { type: 'audio/mp3' })
@@ -197,7 +197,7 @@ function Home() {
                                 <strong>Key:</strong> {trackKey}
                             </p>
                             <ReactAudioPlayer
-                              src={trackURL}
+                              src={trackFilename}
                               controls
                             />
                             

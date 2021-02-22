@@ -33,9 +33,7 @@ class SimpleReactFileUpload extends React.Component {
     //formData.set("data", text);
     formData.append('trackName', event.target.trackName.value)
     formData.append('trackArtist', event.target.trackArtist.value)
-    formData.append('imgFilename', event.target.imgFilename.value)
     formData.append('trackGenre', event.target.trackGenre.value)
-    formData.append('trackFilename', event.target.trackFilename.value)
     formData.append('trackKey', event.target.trackKey.value)
     const config = {
         headers: {
