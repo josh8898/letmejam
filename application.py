@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request, redirect, send_from_directory
 from flask_cors import CORS
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 import psycopg2
 import os
 import boto3, botocore
@@ -18,6 +18,7 @@ S3_SECRET = os.environ['S3_SECRET_ACCESS_KEY']
 S3_LOCATION = os.environ['S3_LOCATION']
 S3_BUCKET = os.environ['S3_BUCKET']
 
+
 application = Flask(__name__)
 CORS(application)
 
@@ -31,7 +32,7 @@ s3 = boto3.client(
 
 # CORS implemented so that we don't get errors when trying to access the server from a different server location
 
-"""
+
 
 con = psycopg2.connect(
     database=DATABASE,
@@ -41,7 +42,7 @@ con = psycopg2.connect(
     port='5432')
 
 cur = con.cursor()
-"""
+
 
 
 # GET: Fetch all movies from the database
