@@ -1,21 +1,21 @@
 from flask import Flask, jsonify, request, redirect, send_from_directory
 from flask_cors import CORS
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import psycopg2
 import os
 import boto3, botocore
 from werkzeug.utils import secure_filename
 
-load_dotenv()
+#load_dotenv()
 
 # PostgreSQL Database credentials loaded from the .env file
-DATABASE = os.getenv('DATABASE')
-DATABASE_USERNAME = os.getenv('DATABASE_USERNAME')
-DATABASE_PASSWORD = os.getenv('DATABASE_PASSWORD')
-S3_KEY = os.getenv("S3_KEY")
-S3_SECRET = os.getenv("S3_SECRET_ACCESS_KEY")
-S3_LOCATION = os.getenv("S3_LOCATION")
-S3_BUCKET = os.getenv("S3_BUCKET")
+DATABASE = os.environ.get('DATABASE')
+DATABASE_USERNAME = os.environ.get('DATABASE_USERNAME')
+DATABASE_PASSWORD = os.environ.get('DATABASE_PASSWORD')
+S3_KEY = os.environ.get("S3_KEY")
+S3_SECRET = os.environ.get("S3_SECRET_ACCESS_KEY")
+S3_LOCATION = os.environ.get("S3_LOCATION")
+S3_BUCKET = os.environ.get("S3_BUCKET")
 
 app = Flask(__name__)
 
