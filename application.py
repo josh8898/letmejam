@@ -20,13 +20,14 @@ S3_BUCKET = os.environ["S3_BUCKET"]
 
 application = Flask(__name__)
 CORS(application)
-
+"""
 s3 = boto3.client(
     "s3",
     aws_access_key_id=S3_KEY,
     aws_secret_access_key=S3_SECRET,
     region_name = "ap-southeast-2"
 )
+"""
 
 # CORS implemented so that we don't get errors when trying to access the server from a different server location
 
