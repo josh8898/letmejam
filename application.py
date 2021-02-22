@@ -18,9 +18,9 @@ S3_SECRET = os.environ.get("S3_SECRET_ACCESS_KEY")
 S3_LOCATION = os.environ.get("S3_LOCATION")
 S3_BUCKET = os.environ.get("S3_BUCKET")
 """
-app = Flask(__name__)
-CORS(app)
-"""
+application = Flask(__name__)
+CORS(application)
+
 s3 = boto3.client(
     "s3",
     aws_access_key_id=S3_KEY,
@@ -41,11 +41,11 @@ con = psycopg2.connect(
     port='5432')
 
 cur = con.cursor()
-"""
+
 
 
 # GET: Fetch all movies from the database
-@app.route('/')
+@application.route('/')
 def fetch_all_tracks():
     #cur.execute('SELECT * FROM tracks')
     #rows = cur.fetchall()
@@ -54,7 +54,7 @@ def fetch_all_tracks():
     #return jsonify(rows)
     return("HI FUCKER")
     # GET: Fetch movie by movieId from the database
-@app.route('/<int:track_id>')
+@application.route('/<int:track_id>')
 def fetch_by_id(track_id=None):
     cur.execute(f'SELECT * FROM tracks WHERE track_id = {track_id}')
     rows = cur.fetchall()
@@ -62,12 +62,12 @@ def fetch_by_id(track_id=None):
 
     return jsonify(rows)
 
-@app.route('/files/<path:filename>')
+@application.route('/files/<path:filename>')
 def download_file(filename):
     return send_from_directory('./files/', filename)
 
 # POST: Create movies and add them to the database
-@app.route('/add-track', methods=['GET', 'POST'])
+@application.route('/add-track', methods=['GET', 'POST'])
 def add_movie():
     if request.method == 'POST':
         print("hi")
@@ -90,7 +90,7 @@ def add_movie():
         return 'Form submission failed'
 
 # DELETE: Delete movie by movieId from the database
-@app.route('/delete-track', methods=['GET', 'DELETE'])
+@application.route('/delete-track', methods=['GET', 'DELETE'])
 def delete_by_id():
     track_id = request.form.to_dict()
     print(track_id['trackId'])
@@ -101,7 +101,7 @@ def delete_by_id():
     return 'Track Deleted'
 
 # PUT: Update movie by movieId from the database
-@app.route('/update-track', methods=['GET', 'PUT'])
+@application.route('/update-track', methods=['GET', 'PUT'])
 def update_by_id():
     data = request.form.to_dict()
     cur.execute(
