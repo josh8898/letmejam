@@ -37,7 +37,8 @@ class SimpleReactFileUpload extends React.Component {
     formData.append('trackKey', event.target.trackKey.value)
     const config = {
         headers: {
-            'content-type': 'multipart/form-data'
+            'content-type': 'multipart/form-data',
+            'Access-Control-Allow-Origin': '*'
         }
     }
     return  post(url, formData,config)
