@@ -48,14 +48,14 @@ cur = con.cursor()
 # GET: Fetch all movies from the database
 @application.route('/')
 def fetch_all_tracks():
-    #cur.execute('SELECT * FROM tracks')
-    #rows = cur.fetchall()
-    #print(rows)
+    cur.execute('SELECT * FROM tracks')
+    rows = cur.fetchall()
+    print(rows)
 
-    #return jsonify(rows)
-    return("HI FUCKER")
+    return jsonify(rows)
+    #return("HI FUCKER")
     # GET: Fetch movie by movieId from the database
-"""
+
 @application.route('/<int:track_id>')
 def fetch_by_id(track_id=None):
     cur.execute(f'SELECT * FROM tracks WHERE track_id = {track_id}')
@@ -125,8 +125,6 @@ def upload_file_to_s3(file, bucket_name, acl="public-read"):
         return e
 
     return "{}{}".format(S3_LOCATION, file.filename)
-"""
+
 if __name__ == '__main__':
     application.run(debug=True)
-
-
