@@ -33,7 +33,7 @@ s3 = boto3.client(
 # CORS implemented so that we don't get errors when trying to access the server from a different server location
 
 
-"""
+
 con = psycopg2.connect(
     database=DATABASE,
     user=DATABASE_USERNAME,
@@ -42,7 +42,7 @@ con = psycopg2.connect(
     port='5432')
 
 cur = con.cursor()
-"""
+
 
 
 # GET: Fetch all movies from the database
