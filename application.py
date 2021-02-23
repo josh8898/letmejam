@@ -21,6 +21,7 @@ S3_BUCKET = os.environ['S3_BUCKET']
 
 application = Flask(__name__)
 CORS(application)
+application.config['CORS_HEADERS'] = 'Content-Type'
 
 s3 = boto3.client(
     "s3",
@@ -87,7 +88,7 @@ def add_movie():
                     (f"{data['trackName']}", f"{data['trackArtist']}", "No IMG", f"{data['trackGenre']}",
                     output, f"{data['trackKey']}", 0))
         con.commit()
-        return redirect('http://localhost:3000/', code="200")
+        return redirect('https://www.letmejam.com/', code="200")
     else:
         return 'Form submission failed'
 
