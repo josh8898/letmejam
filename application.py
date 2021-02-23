@@ -88,7 +88,9 @@ def add_movie():
                     (f"{data['trackName']}", f"{data['trackArtist']}", "No IMG", f"{data['trackGenre']}",
                     output, f"{data['trackKey']}", 0))
         con.commit()
-        return redirect('https://www.letmejam.com/', code="200")
+        response = jsonify([200])
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        return response
     else:
         return 'Form submission failed'
 
