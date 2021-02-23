@@ -55,7 +55,7 @@ function Home() {
     const getAPI = () => {
         // Change this endpoint to whatever local or online address you have
         // Local PostgreSQL Database
-        const API = 'http://letmejam-env.eba-jppjpcwd.ap-southeast-2.elasticbeanstalk.com';
+        const API = 'http://data.letmejam.com';
 
         fetch(API)
             .then((response) => {
