@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request, redirect, send_from_directory
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from dotenv import load_dotenv
 import psycopg2
 import os
@@ -71,6 +71,7 @@ def download_file(filename):
 
 # POST: Create movies and add them to the database
 @application.route('/add-track', methods=['GET', 'POST'])
+@cross_origin()
 def add_movie():
     if request.method == 'POST':
         print("hi")
