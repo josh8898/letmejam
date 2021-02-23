@@ -20,8 +20,8 @@ S3_BUCKET = os.environ['S3_BUCKET']
 
 
 application = Flask(__name__)
-CORS(application)
-application.config['CORS_HEADERS'] = 'Content-Type'
+CORS(application, resources={r"/*": {"origins": "*"}})
+#application.config['CORS_HEADERS'] = 'Content-Type'
 
 s3 = boto3.client(
     "s3",
