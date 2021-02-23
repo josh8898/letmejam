@@ -38,7 +38,9 @@ class SimpleReactFileUpload extends React.Component {
     const config = {
         headers: {
             'content-type': 'multipart/form-data',
-            'Access-Control-Allow-Origin': '*'
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'POST, GET',
+            'crossorigin': 'true'
         }
     }
     return  post(url, formData,config)
