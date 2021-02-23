@@ -26,7 +26,7 @@ class SimpleReactFileUpload extends React.Component {
       this.setState({})
   }
   fileUpload(event){
-    const url = 'http://127.0.0.1:5000/add-track';
+    const url = 'https://data.letmejam.com/add-track';
     const formData = new FormData();
     const f = event.target.musicfile.files[0];
     formData.append('file',f);
