@@ -50,28 +50,12 @@ const App = () => {
     );
 }
 
-async function getMP3(id) {
-  
-  try {
-    const {data:response} = await axios.get(`http://localhost:5000/files/t${id}.mp3`, {responseType: 'blob'}) //use data destructuring to get data from the promise object
-    
-    const mp3 = new Blob([response.data], { type: 'audio/mp3' })
-    const trackURL = window.URL.createObjectURL(mp3)
-    console.log(trackURL)
-    return trackURL
-  }
-
-  catch (error) {
-    console.log(error);
-  }
-}
-
 function Home() {
   useEffect(() => {
     const getAPI = () => {
         // Change this endpoint to whatever local or online address you have
         // Local PostgreSQL Database
-        const API = 'http://127.0.0.1:5000/';
+        const API = 'http://letmejam-env.eba-jppjpcwd.ap-southeast-2.elasticbeanstalk.com';
 
         fetch(API)
             .then((response) => {
