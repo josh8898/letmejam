@@ -55,7 +55,7 @@ function Home() {
     const getAPI = () => {
         // Change this endpoint to whatever local or online address you have
         // Local PostgreSQL Database
-        const API = 'http://data.letmejam.com';
+        const API = 'https://data.letmejam.com';
 
         fetch(API)
             .then((response) => {
