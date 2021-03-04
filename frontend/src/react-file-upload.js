@@ -1,5 +1,6 @@
 import React from 'react';
 import axios, { post } from 'axios';
+import { Redirect } from 'react-router-dom';
 
 class SimpleReactFileUpload extends React.Component {
 
@@ -18,6 +19,7 @@ class SimpleReactFileUpload extends React.Component {
     this.fileUpload(e).then((response)=>{
       console.log(response.data);
     })
+    return <Redirect to="/" />
   }
   onChange(e) {
     this.setState({file:e.target.files[0]})
