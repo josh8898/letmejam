@@ -7,25 +7,30 @@ class SimpleReactFileUpload extends React.Component {
   constructor(props) {
     super(props);
     this.state ={
-      file:null
+      file:null,
       //,text:null
+      redirect:false
     }
     this.onFormSubmit = this.onFormSubmit.bind(this)
     this.onChange = this.onChange.bind(this)
     this.fileUpload = this.fileUpload.bind(this)
+    this.onRedirectChange = this.onRedirectChange.bind(this)
   }
   onFormSubmit(e){
     e.preventDefault() // Stop form submit
     this.fileUpload(e).then((response)=>{
+      this.onRedirectChange();
       console.log(response.data);
     })
-    return <Redirect to="/" />
   }
   onChange(e) {
     this.setState({file:e.target.files[0]})
   }
   onTextChange(e) {
       this.setState({})
+  }
+  onRedirectChange() {
+    this.setState({redirect:true})
   }
   fileUpload(event){
     const url = 'https://data.letmejam.com/add-track';
@@ -49,6 +54,10 @@ class SimpleReactFileUpload extends React.Component {
   }
 
   render() {
+    const redirect = this.state.redirect;
+    if (redirect) {
+      return <Redirect to='/'/>;
+    } 
     return (
     <div className="form-container">
       <form onSubmit={this.onFormSubmit}>
